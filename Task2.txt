@@ -1,0 +1,17 @@
+using System;
+namespace Task2
+{
+    class Homework
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter the numbers");
+            double a = Convert.ToDouble(Console.ReadLine());
+            double b = Convert.ToDouble(Console.ReadLine());
+            double c = Convert.ToDouble(Console.ReadLine());
+            double p = (a + b + c) / 2;
+            double answer = Math.Sqrt(p * (p - a) * (p - b) * (p - c));
+            Console.WriteLine(answer);
+        }
+    }
+}
