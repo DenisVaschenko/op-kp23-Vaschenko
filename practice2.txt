@@ -10,30 +10,31 @@ namespace ConsoleApp5
         {
             Console.WriteLine("Enter the number n in range 1 to 15");
             int n = Convert.ToInt32(Console.ReadLine());
-            while (n<1 || n>15)
+            while (n < 1 || n > 15)
             {
                 Console.WriteLine("Enter the number n in range 1 to 15");
                 n = Convert.ToInt32(Console.ReadLine());
             }
-            int k = ((n + 1) * 6) / 2;
-            for (int i = 1; i<=n+1; i++)
+            int value;
+            int previous ;
+            int k = ((n+1) * 6) / 2;
+            for (int i = 1; i <= n + 1; i++)
             {
                 for (int j = 1; j <= k; j++)
                 {
                     Console.Write(" ");
                 }
                 if (i > 1) { Console.Write("1     "); }
-                for (int j = 2; j<i; j++)
+                value = 1;
+                previous = 1;
+                for (int j = 2; j < i; j++)
                 {
-                    int value = 1;
-                    for (int o=1; o < j; o++)
-                    {
-                        value = value * ((i - 1) - o + 1) / o;
-                    }
-                    Console.Write(value+"  ");
-                    if (value % 1000 == value) { Console.Write(" "); }
-                    if (value % 100 == value) { Console.Write(" "); }
-                    if (value % 10 == value) { Console.Write(" "); }
+                    value = previous * (i - j + 1) / (j - 1);
+                    previous = value;
+                    Console.Write(value + "  ");
+                    if (value < 1000) { Console.Write(" "); }
+                    if (value < 100) { Console.Write(" "); }
+                    if (value < 10) { Console.Write(" "); }
                 }
                 Console.Write("1");
                 if (i < n + 1)
