@@ -24,7 +24,7 @@ namespace ConsoleApp5
                 {
                     Console.Write(" ");
                 }
-                if (i > 1) { Console.Write("1     "); }
+                if (i > 0) { Console.Write("1     "); }
                 value = 1;
                 previous = 1;
                 for (int j = 1; j < i; j++)
