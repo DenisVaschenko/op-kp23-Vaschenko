@@ -16,7 +16,6 @@ namespace ConsoleApp5
                 n = Convert.ToInt32(Console.ReadLine());
             }
             int value;
-            int previous;
             int k = ((n + 1) * 6) / 2;
             for (int i = 0; i <= n; i++)
             {
@@ -26,18 +25,16 @@ namespace ConsoleApp5
                 }
                 if (i > 0) { Console.Write("1     "); }
                 value = 1;
-                previous = 1;
                 for (int j = 1; j < i; j++)
                 {
-                    value = previous * (i - j + 1) / j;
-                    previous = value;
+                    value = value * (i - j + 1) / j;
                     Console.Write(value + "  ");
                     if (value < 1000) { Console.Write(" "); }
                     if (value < 100) { Console.Write(" "); }
                     if (value < 10) { Console.Write(" "); }
                 }
                 Console.Write("1");
-                if (i < n )
+                if (i < n)
                 {
                     Console.WriteLine();
                     Console.WriteLine();
