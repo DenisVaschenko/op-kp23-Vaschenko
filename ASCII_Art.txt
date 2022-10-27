@@ -1,0 +1,49 @@
+using System;
+namespace Practice
+{
+    class Project
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter size of mirror");
+            int n = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("A mirror of size "+n);
+            Console.Write("#====");
+            for (int i = 0; i < n; i++)
+            {
+                 Console.Write("====");
+            }
+            Console.Write("#");
+            Console.WriteLine();
+            for (int i = 0; i<n*2; i++)
+            {
+                if (i < n) { for (int j = 0; j < n*2 - i ; j++) { Console.Write(" "); } }
+                else { for (int j = 0; j < i + 1; j++) { Console.Write(" "); } }
+                Console.Write("|<>");
+                if (i < n)
+                {
+                    for (int j = 0; j<i; j++)
+                    {
+                        Console.Write("..");
+                    }
+                }
+                else
+                {
+                    for (int j = 0; j < n*2-i-1; j++)
+                    {
+                        Console.Write("..");
+                    }
+                }
+                Console.Write("<>|");
+                Console.WriteLine();
+            }
+            Console.Write("#====");
+            for (int i = 0; i < n; i++)
+            {
+                Console.Write("====");
+            }
+            Console.Write("#");
+            Console.WriteLine();
+        }
+    }
+}
