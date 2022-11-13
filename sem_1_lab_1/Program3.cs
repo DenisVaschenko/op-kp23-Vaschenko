@@ -19,10 +19,11 @@ namespace Program3
             int n = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Enter the number x");
             int x = Convert.ToInt32(Console.ReadLine());
-            int fact_n = 1, powered_x = 1;
+            int fact_n = 1;
+            double powered_x = 1;
             if (n >= 0)
             {
-                for (int i = 2; i<=n; i++)
+                for (int i = 2; i <= n; i++)
                 {
                     fact_n *= i;
                 }
@@ -32,9 +33,20 @@ namespace Program3
             {
                 Console.WriteLine("Unable to calculate factorial of number n");
             }
-            for (int i = 0; i < n; i++)
+            if (n >= 0)
             {
-                powered_x *= x;
+                for (int i = 0; i < n; i++)
+                {
+                    powered_x *= x;
+                }
+            }
+            else
+            {
+                n = -n;
+                for (int i = 0; i < n; i++)
+                {
+                    powered_x /= x;
+                }
             }
             Console.WriteLine("Powered number = " + powered_x);
         }
