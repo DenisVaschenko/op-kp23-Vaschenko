@@ -8,16 +8,30 @@ namespace Program4
     {
         static double sin(double x)
         {
-            return 0;
+            double answer = x, a = x;
+
+            for (int i = 1; i<20; i++)
+            {
+                a *= -1 * x * x / (2 * i * (2 * i + 1));
+                answer += a;
+            }
+            return answer;
         }
         static void Main(string[] args)
-        {
-            Console.WriteLine("Enter the number x");
+        { 
             for (int i = 0; i<10; i++)
             {
-                double x = 0;
-                Console.WriteLine(x);
-                Console.WriteLine("Result matches with Math.Sin(x)");
+                Console.WriteLine("Enter the number x");
+                double x = Convert.ToDouble(Console.ReadLine());
+                if (Math.Abs(sin(x) - Math.Sin(x)) <0.0001)
+                {
+                    Console.WriteLine("{0:F3}",sin(x));
+                    Console.WriteLine("Result matches with Math.Sin(x)");
+                }
+                else
+                {
+                    Console.WriteLine("Result doesn't match with Math.Sin(x)");
+                }
             }
         }
     }
