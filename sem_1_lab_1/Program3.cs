@@ -16,20 +16,20 @@ namespace Program3
         static void Main(string[] args)
         {
             Console.WriteLine("Enter the number n");
-            int n = 0;
+            int n = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Enter the number x");
-            int x = 0;
-            int fact_x = 0, powered_x = 0;
-            Console.WriteLine("factorial of number = " + fact_x);
+            int x = Convert.ToInt32(Console.ReadLine());
+            int fact_n = 0, powered_x = 0;
+            Console.WriteLine("factorial of number = " + fact_n);
             Console.WriteLine("Powered number = " + powered_x);
         }
         /*
-         * test case 0 fact_x = 1, powered_x= 1
-         * test case 1 fact_x = 1, powered_x= 1
-         * test case 2 fact_x = 2, powered_x= 4
-         * test case 3 fact_x = 6, powered_x= 27
-         * test case 4 fact_x = 24, powered_x= 256
-         * test case 5 fact_x = 120, powered_x= 3125
+         * test case 0 fact_n = 1, powered_x= 1
+         * test case 1 fact_n = 1, powered_x= 1
+         * test case 2 fact_n = 2, powered_x= 4
+         * test case 3 fact_n = 6, powered_x= 27
+         * test case 4 fact_n = 24, powered_x= 256
+         * test case 5 fact_n = 120, powered_x= 3125
          */
     }
 }
