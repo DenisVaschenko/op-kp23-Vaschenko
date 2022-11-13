@@ -5,19 +5,6 @@ namespace Program3
 {
     class Program
     {
-        static double root(int sqr_x)
-        {
-            double left = 0, right = sqr_x;
-            double x = 0;
-            while (Math.Abs(sqr_x - x*x) > 0.1)
-            {
-                x = (left +right) / 2;
-                if (x * x == sqr_x) { break; }
-                else if (x * x < sqr_x) { left = x; }
-                else { right = x; }
-            }
-            return x;
-        }
         static void Main(string[] args)
         {
             Console.WriteLine("Enter the number n");
