@@ -1,0 +1,12 @@
+Input(Fyle):
+abc
+bca
+cba
+acb
+bac
+Output(Fyle):
+abc
+acb
+bac
+bca
+cba
