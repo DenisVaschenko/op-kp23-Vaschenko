@@ -1,6 +1,10 @@
 ﻿using System.Collections.Specialized;
 class Program
 {
+    /*
+     * Input: (2,5;3,5;-4) + (-3,5;-8,4)
+     * Output: -15,9
+     */
     static void Main(string[] args)
     {
     }
