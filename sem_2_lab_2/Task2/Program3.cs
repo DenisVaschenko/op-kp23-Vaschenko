@@ -1,4 +1,9 @@
-﻿
+﻿/*
+ * Input:
+ * 1
+ * 2
+ * 3
+ */
 interface Vessel
 {
     public void PrepareToMove();
@@ -28,3 +33,10 @@ class Program
     {
     }
 }
+/*
+ * Output:
+ * Sailing Vessel is preparing to move...
+ * Sailing Vessel is moving
+ * Submarine is preparing to move...
+ * Submarine is moving
+ */
