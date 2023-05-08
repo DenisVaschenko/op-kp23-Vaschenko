@@ -1,4 +1,5 @@
-﻿using System.Dynamic;
+using System;
+using System.Dynamic;
 using System.IO.Pipes;
 using System.Numerics;
 using System.Runtime.CompilerServices;
@@ -30,7 +31,7 @@ class Program
             s = Console.ReadLine().Split();
             try
             {
-                statement.AddClient(s[0], Convert.ToInt32(s[1]), Convert.ToInt32(s[2]));
+                statement.AddClient(s[0], Convert.ToDouble(s[1]), Convert.ToDouble(s[2]));
             }
             catch
             {
@@ -54,40 +55,40 @@ class Program
                 Print(' ', 7 - j);
                 j = 7;
             }
-            Console.Write(statement.clients[i].surname + " ");
+            Console.Write("{0:F2} ", statement.clients[i].surname);
             j += statement.clients[i].surname.Length + 1;
             if (j < 19)
             {
                 Print(' ', 19 - j);
                 j = 19;
             }
-            Console.Write(statement.clients[i].salary + " ");
-            j += NumberLength(statement.clients[i].salary) + 1;
+            Console.Write("{0:F2} ", statement.clients[i].salary);
+            j += NumberLength((int)Math.Floor(statement.clients[i].salary)) + 4;
             if (j < 30)
             {
                 Print(' ', 30 - j);
                 j = 30;
             }
-            Console.Write(statement.clients[i].held + " ");
-            j += NumberLength(statement.clients[i].held) + 1;
+            Console.Write("{0:F2} ", statement.clients[i].held);
+            j += NumberLength((int)Math.Floor(statement.clients[i].held)) + 4;
             if (j < 39)
             {
                 Print(' ', 39 - j);
                 j = 39;
             }
-            Console.Write(statement.clients[i].received + "\n");
+            Console.Write("{0:F2} \n",statement.clients[i].received);
         }
         statement.CountSummary();
-        Console.WriteLine("Sum of salary: " + statement.sum1);
-        Console.WriteLine("Sum of held: " + statement.sum2);
-        Console.WriteLine("Sum of received: " + statement.sum3);
+        Console.WriteLine("{1:F2}", "Sum of salary: ", statement.sum1);
+        Console.WriteLine("{1:F2}", "Sum of held: ", statement.sum2);
+        Console.WriteLine("{1:F2}", "Sum of received: ",  statement.sum3);
     }
     static int NumberLength(int n)
     {
         int i = 0;
         while (n > 0)
         {
-            n /= 10;
+            n = (int)n / 10;
             i++;
         }
         return i;
@@ -103,10 +104,10 @@ class Program
 class Client
 {
     public string surname;
-    public int salary;
-    public int held;
-    public int received;
-    public Client(string surname, int salary, int held)
+    public double salary;
+    public double held;
+    public double received;
+    public Client(string surname, double salary, double held)
     {
         if (salary < held)
         {
@@ -121,14 +122,14 @@ class Client
 class Statement
 {
     public List<Client> clients = new List<Client>();
-    public int sum1;
-    public int sum2;
-    public int sum3;
+    public double sum1;
+    public double sum2;
+    public double sum3;
     public void AddClient(Client client)
     {
         clients.Add(client);
     }
-    public void AddClient(string surname, int salary, int held)
+    public void AddClient(string surname, double salary, double held)
     {
         clients.Add(new Client(surname, salary, held));
     }
