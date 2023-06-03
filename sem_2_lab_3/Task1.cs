@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using System.Linq.Expressions;
 
 class Deque<Item> : IIterable<Item>
 {
@@ -10,8 +11,8 @@ class Deque<Item> : IIterable<Item>
     public Deque()
     {
         sequence = new Item[100];
-        head = sequence.Length;
-        tail = -1;
+        head = 0;
+        tail = sequence.Length - 1;
         count = 0;
     }
     public bool isEmpty()
@@ -25,7 +26,7 @@ class Deque<Item> : IIterable<Item>
     public void addFirst(Item item)
     {
         count++;
-        head = head - 1;
+        head--;
         if (head < 0) head = sequence.Length + head;
         sequence[head] = item;
         if (size() == sequence.Length) Expand();
@@ -55,7 +56,7 @@ class Deque<Item> : IIterable<Item>
             throw new InvalidOperationException();
         }
         Item res = sequence[tail];
-        tail = tail - 1;
+        tail--;
         if (tail < 0) tail = sequence.Length + tail;
         count--;
         return res;
@@ -64,7 +65,7 @@ class Deque<Item> : IIterable<Item>
     {
         return new IteratorImpl(this);
     }
-    private class IteratorImpl: IIterator<Item>
+    private class IteratorImpl : IIterator<Item>
     {
         Deque<Item> deque;
         private int counter;
@@ -97,7 +98,7 @@ class Deque<Item> : IIterable<Item>
         sequence = new Item[temp.Length * 2];
         int i = sequence.Length - size() / 2;
         int j = head;
-        while (i >= sequence.Length - (size() / 2) || i < size()/2 + size() % 2)
+        while (i >= sequence.Length - (size() / 2) || i < size() / 2 + size() % 2)
         {
             sequence[i] = temp[j];
             i = (i + 1) % sequence.Length;
@@ -183,7 +184,7 @@ class Program
         DequeTest dequeTest = new DequeTest();
         if (dequeTest.testDeque() && dequeTest.testIsEmpty() && dequeTest.testSize()
             && dequeTest.testAddFirst() && dequeTest.testAddLast() && dequeTest.testRemoveFirst()
-            && dequeTest.testRemoveLast() && dequeTest.testIterator()) Console.WriteLine("All tests was passed");
+            && dequeTest.testRemoveLast() && dequeTest.testIterator()) Console.WriteLine("All tests were passed");
         else Console.WriteLine("Program work uncorrectly");
     }
 }
