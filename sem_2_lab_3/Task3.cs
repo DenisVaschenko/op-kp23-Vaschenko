@@ -8,24 +8,47 @@ class RandomizedQueue<Item> : IIterable<Item>
     Random rand = new Random();
     public RandomizedQueue()
     {
+        sequence = new Item[100];
+        count = 0;
     }
     public bool isEmpty()
     {
+        return count == 0;
     }
     public int size()
     {
+        return count;
     }
     public void enque(Item item)
     {
+        sequence[size()] = item;
+        count++;
+        if (size() == sequence.Length) Expand();
+        
     }
     public Item dequeue()
     {
+        if (isEmpty())
+        {
+            throw new InvalidOperationException();
+        }
+        int i = rand.Next(size());
+        Item res = sequence[i];
+        count--;
+        sequence[i] = sequence[size()];
+        return res;
     }
     public Item sample()
     {
+        if (isEmpty())
+        {
+            throw new InvalidOperationException();
+        }
+        return sequence[rand.Next(count)];
     }
     public IIterator<Item> iterator()
     {
+        return new IteratorImpl(this);
     }
     private class IteratorImpl : IIterator<Item>
     {
@@ -34,17 +57,32 @@ class RandomizedQueue<Item> : IIterable<Item>
         {
             get
             {
+                return randomizedQueue.size() > 0;
             }
         }
         public IteratorImpl(RandomizedQueue<Item> randomizedQueue)
         {
+            this.randomizedQueue = randomizedQueue;
         }
         public Item MoveNext()
         {
+            if (!this.HasNext)
+            {
+                throw new IndexOutOfRangeException();
+            }
+            return randomizedQueue.dequeue();
         }
     }
     void Expand()
     {
+        Item[] temp = sequence;
+        sequence = new Item[temp.Length * 2];
+        int i = 0;
+        while (i < temp.Length)
+        {
+            sequence[i] = temp[i];
+            i++;
+        }
     }
 }
 class RandomizedQueueTest
