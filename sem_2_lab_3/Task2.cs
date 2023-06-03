@@ -69,32 +69,78 @@ class DequeTest
 {
     public bool testDeque()
     {
+        try
+        {
+            Deque<int> deque = new Deque<int>();
+            return true;
+        }
+        catch
+        {
+            return false;
+        }
     }
     public bool testIsEmpty()
     {
+        Deque<int> deque = new Deque<int>();
+        if (!deque.isEmpty()) return false;
+        deque.addFirst(1);
+        if (deque.isEmpty()) return false;
+        return true;
     }
     public bool testSize()
     {
+        Deque<int> deque = new Deque<int>();
+        if (deque.size() != 0) return false;
+        deque.addFirst(1);
+        if (deque.size() != 1) return false;
+        return true;
     }
     public bool testAddFirst()
     {
+        Deque<int> deque = new Deque<int>();
+        deque.addFirst(1);
+        if (deque.head.value != 1) return false;
+        return true;
     }
     public bool testAddLast()
     {
+        Deque<int> deque = new Deque<int>();
+        deque.addLast(1);
+        if (deque.tail.value != 1) return false;
+        return true;
     }
     public bool testRemoveFirst()
     {
+        Deque<int> deque = new Deque<int>();
+        deque.addFirst(1);
+        if (deque.removeFirst() != 1) return false;
+        return true;
     }
     public bool testRemoveLast()
     {
+        Deque<int> deque = new Deque<int>();
+        deque.addLast(1);
+        if (deque.removeLast() != 1) return false;
+        return true;
     }
     public bool testIterator()
     {
+        Deque<int> deque = new Deque<int>();
+        deque.addLast(2);
+        deque.addFirst(1);
+        IIterator<int> iterator = deque.iterator();
+        if (!iterator.HasNext || iterator.MoveNext() != 1 || iterator.MoveNext() != 2 || iterator.HasNext) return false;
+        return true;
     }
 }
 class Program
 {
     static void Main(string[] args)
     {
+        DequeTest dequeTest = new DequeTest();
+        if (dequeTest.testDeque() && dequeTest.testIsEmpty() && dequeTest.testSize()
+            && dequeTest.testAddFirst() && dequeTest.testAddLast() && dequeTest.testRemoveFirst()
+            && dequeTest.testRemoveLast() && dequeTest.testIterator()) Console.WriteLine("All tests was passed");
+        else Console.WriteLine("Program work uncorrectly");
     }
 }
