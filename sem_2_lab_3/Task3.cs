@@ -52,17 +52,20 @@ class RandomizedQueue<Item> : IIterable<Item>
     }
     private class IteratorImpl : IIterator<Item>
     {
-        RandomizedQueue<Item> randomizedQueue;
+        Item[] items;
+        int count;
+        Random random = new Random();
         public bool HasNext
         {
             get
             {
-                return randomizedQueue.size() > 0;
+                return count > 0;
             }
         }
         public IteratorImpl(RandomizedQueue<Item> randomizedQueue)
         {
-            this.randomizedQueue = randomizedQueue;
+            items = randomizedQueue.sequence;
+            count = randomizedQueue.size();
         }
         public Item MoveNext()
         {
@@ -70,7 +73,12 @@ class RandomizedQueue<Item> : IIterable<Item>
             {
                 throw new IndexOutOfRangeException();
             }
-            return randomizedQueue.dequeue();
+            int i = random.Next(count);
+            Item res = items[i];
+            count--;
+            items[i] = items[count];
+            items[count] = res;
+            return res;
         }
     }
     void Expand()
