@@ -7,6 +7,7 @@ class Node<T>
     public Node<T> nextNode;
     public Node(T value)
     {
+        this.value = value;
     }
 }
 class Deque<Item> : IIterable<Item>
@@ -16,27 +17,91 @@ class Deque<Item> : IIterable<Item>
     int count;
     public Deque()
     {
+        count = 0;
     }
     public bool isEmpty()
     {
+        return count == 0;
     }
     public int size()
     {
+        return count;
     }
     public void addFirst(Item item)
     {
+        Node<Item> node = new Node<Item>(item);
+        if (size() == 0)
+        {
+            head = node;
+            tail = node;
+        }
+        else
+        {
+            node.nextNode = head;
+            head.prevNode = node;
+            head = node;
+        }
+        count++;
     }
     public void addLast(Item item)
     {
+        Node<Item> node = new Node<Item>(item);
+        if (size() == 0)
+        {
+            head = node;
+            tail = node;
+        }
+        else
+        {
+            node.prevNode = tail;
+            tail.nextNode = node;
+            tail = node;
+        }
+        count++;
     }
     public Item removeFirst()
     {
+        if (isEmpty())
+        {
+            throw new InvalidOperationException();
+        }
+        count--;
+        Item res = head.value;
+        if (!isEmpty())
+        {
+            head.nextNode.prevNode = null;
+            head = head.nextNode;
+        }
+        else
+        {
+            head = null;
+            tail = null;
+        }
+        return res;
     }
     public Item removeLast()
     {
+        if (isEmpty())
+        {
+            throw new InvalidOperationException();
+        }
+        count--;
+        Item res = tail.value;
+        if (!isEmpty())
+        {
+            tail.prevNode.nextNode = null;
+            tail = tail.prevNode;
+        }
+        else
+        {
+            head = null;
+            tail = null;
+        }
+        return res;
     }
     public IIterator<Item> iterator()
     {
+        return new IteratorImpl(this);
     }
     private class IteratorImpl : IIterator<Item>
     {
@@ -46,13 +111,23 @@ class Deque<Item> : IIterable<Item>
         {
             get
             {
+                return counter != null;
             }
         }
         public IteratorImpl(Deque<Item> deque)
         {
+            this.deque = deque;
+            counter = deque.head;
         }
         public Item MoveNext()
         {
+            if (!this.HasNext)
+            {
+                throw new IndexOutOfRangeException();
+            }
+            Item res = counter.value;
+            counter = counter.nextNode;
+            return res;
         }
     }
 }
