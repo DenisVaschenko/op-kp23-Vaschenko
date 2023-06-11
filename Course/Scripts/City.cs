@@ -18,12 +18,15 @@ public class City : MonoBehaviour
     int richCitizens = 0;
     int freePeasants = 0;
     int peasants = 0;
+    public int Peasants { get { return peasants; } }
+    public int RichCitizen { get { return richCitizens; } }
     public Building[,] matrix = new Building[1001, 1001];
     public GameObject Ui;
     private void Start()
     {
         BuildingTest buildingTest = new BuildingTest();
-        if (buildingTest.AllTest()) Debug.Log("All unit tests were completed");
+        CityTest cityTest = new CityTest();
+        if (buildingTest.AllTest() && cityTest.AllTest()) Debug.Log("All unit tests were completed");
         else Debug.Log("Error!!!");
     }
     private void FixedUpdate()
@@ -147,5 +150,40 @@ public class City : MonoBehaviour
     {
         peasants += n;
         freePeasants += n;
+    }
+}
+
+
+public class CityTest
+{
+    public bool ConstrutorTest()
+    {
+        try
+        {
+            City city = new City();
+            if (city.bread != 0 || city.meat != 0 || city.clothes != 0) return false;
+            return true;
+        }
+        catch
+        {
+            return false;
+        }
+    }
+    public bool AddCitizensTest()
+    {
+        City city = new City();
+        city.AddCitizens(5);
+        return city.Peasants == 5;
+    }
+    public bool ConvertCitizenTest()
+    {
+        City city = new City();
+        city.AddCitizens(8);
+        city.ConvertCitizens(5);
+        return city.Peasants == 3 && city.RichCitizen == 5;
+    }
+    public bool AllTest()
+    {
+        return ConstrutorTest() && AddCitizensTest() && ConvertCitizenTest();
     }
 }
