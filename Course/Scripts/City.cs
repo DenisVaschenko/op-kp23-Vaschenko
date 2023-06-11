@@ -20,6 +20,12 @@ public class City : MonoBehaviour
     int peasants = 0;
     public Building[,] matrix = new Building[1001, 1001];
     public GameObject Ui;
+    private void Start()
+    {
+        BuildingTest buildingTest = new BuildingTest();
+        if (buildingTest.AllTest()) Debug.Log("All unit tests were completed");
+        else Debug.Log("Error!!!");
+    }
     private void FixedUpdate()
     {
         if (Input.GetKey("t"))
@@ -58,7 +64,7 @@ public class City : MonoBehaviour
         bread -= Mathf.Min(bread, richCitizens * 0.75f) * Time.deltaTime / 5;
         clothes -= Mathf.Min(clothes, richCitizens * 1f) * Time.deltaTime / 5;
         meat -= Mathf.Min(meat, richCitizens * 1f) * Time.deltaTime / 5;
-        luxirious -= Mathf.Min(luxirious, richCitizens * 1f) * Time.deltaTime / 5;
+        luxirious -= Mathf.Min(luxirious, richCitizens * 0.5f) * Time.deltaTime / 5;
         money += (Mathf.Min(bread, peasants * 1f) * 5f + Mathf.Min(clothes, peasants * 0.5f) * 8f) * Time.deltaTime / 5;
         bread -= Mathf.Min(bread, peasants * 1f) * Time.deltaTime / 5;
         clothes -= Mathf.Min(clothes, peasants * 0.5f) * Time.deltaTime / 5;
@@ -119,7 +125,6 @@ public class City : MonoBehaviour
         if (freePeasants >= n)
         {
             freePeasants -= n;
-            freeRichCitizens += n;
         }
         else
         {

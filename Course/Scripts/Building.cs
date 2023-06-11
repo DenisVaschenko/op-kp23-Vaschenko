@@ -431,8 +431,8 @@ public class Manufactory : Building, IProductiveBuilding
     }
     public void Produce()
     {
-        Product = (Product.Item1, Productivity);
-        city.tools += Product.Item2 * Time.deltaTime;
+        Product = (Product.Item1, Productivity * 2);
+        city.tools += Product.Item2 * Time.deltaTime / 5;
     }
     public void Consume()
     {
@@ -540,7 +540,7 @@ public class LuxiriousManufactory : Building, IProductiveBuilding
     }
     public override string SetInformation()
     {
-        string s = "Name: " + name + "\nProduct: " + Product.Item1;
+        string s = "Name: " + name + "\nProduct: " + Product.Item1 + " " + Product.Item2;
         foreach (var x in ConsumeProducts)
         {
             s += "\nConsume product: " + x.Item2 + " " + x.Item1;
@@ -555,10 +555,63 @@ public class LuxiriousManufactory : Building, IProductiveBuilding
     public void Consume()
     {
         Productivity = (int)Math.Min(countOfCitizens * 40, city.money) / 40;
-        Productivity = (int)Math.Min(Math.Min(countOfCitizens * 5, city.tools) / 5, Productivity);
+        Productivity = (int)Math.Min(Math.Min(countOfCitizens, city.tools), Productivity);
         ConsumeProducts[0] = (ConsumeProducts[0].Item1, Productivity * 40);
-        ConsumeProducts[1] = (ConsumeProducts[1].Item1, Productivity * 5);
+        ConsumeProducts[1] = (ConsumeProducts[1].Item1, Productivity);
         city.money -= ConsumeProducts[0].Item2 * Time.deltaTime / 5;
         city.tools -= ConsumeProducts[1].Item2 * Time.deltaTime / 5;
     }
+}
+
+
+
+
+public class BuildingTest
+{
+    public bool BuildTest()
+    {
+        WindMill wm = new WindMill();
+        Woods wood = new Woods();
+        return (wm.name == "Wind Mill" && wm.Level == 1 && wood.name == "Woods");
+    }
+    public bool AddCitizenTest()
+    {
+        Manufactory manufactory = new Manufactory();
+        if (!manufactory.CanCitizenBeAdded()) return false;
+        manufactory.AddCitizen(3);
+        if (manufactory.CanCitizenBeAdded()) return false;
+        return true;
+    }
+    public bool RemoveCitizenTest()
+    {
+        Manufactory manufactory = new Manufactory();
+        manufactory.AddCitizen(3);
+        if (manufactory.countOfCitizens != 3) return false;
+        manufactory.RemoveCitizen(3);
+        if (manufactory.countOfCitizens > 0) return false;
+        return true;
+    }
+    public bool UpgradeTest()
+    {
+        City city = new City();
+        ClothesManufactory clothes = new ClothesManufactory();
+        clothes.city = city;
+        if (clothes.CanBeUpgraded()) return false;
+        city.wood = 100;
+        city.money = 10000;
+        city.tools = 100;
+        if (!clothes.CanBeUpgraded()) return false;
+        return true;
+    }
+    public bool ProductiveTest()
+    {
+        WindMill wind = new WindMill();
+        if (wind.ConsumeProducts[0].Item1 != "money" || wind.Product.Item1 != "Bread") return false;
+        return true;
+    }
+    public bool AllTest()
+    {
+        return BuildTest() && AddCitizenTest() && UpgradeTest() && ProductiveTest() && RemoveCitizenTest();
+    }
+    
 }
