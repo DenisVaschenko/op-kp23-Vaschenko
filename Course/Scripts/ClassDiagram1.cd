@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Building" Collapsed="true">
+    <Position X="20.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAgAAAAAGEBAAAAMAgAAEAAIAAAIAAA=</HashCode>
+      <FileName>Assets\Scripts\Building.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Resource">
+    <Position X="16" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAARAAAAAAAAAAAAAAAAAAAAAEAAgAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Building.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ResourceConsumer">
+    <Position X="11.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAACIAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Building.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WindMill">
+    <Position X="10.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAACgAAIAABAAAAAAAAiEAAAIAAAAAABoAAAAAAAgAA=</HashCode>
+      <FileName>Assets\Scripts\Building.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Wheat">
+    <Position X="17" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Building.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Woods">
+    <Position X="14.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Building.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="House">
+    <Position X="18.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAABAAAAAAAAiEAAAIAAAAAABIAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Building.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SawMill">
+    <Position X="12.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAACgAAIAABAAAAAAAACEAAAIAAAAAAAgAAAAAAAgAA=</HashCode>
+      <FileName>Assets\Scripts\Building.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Farm">
+    <Position X="22.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAACgAAIAABAAAAAAAACEAAAIAAAAAAAgAAAAAAAgAA=</HashCode>
+      <FileName>Assets\Scripts\Building.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TownHall">
+    <Position X="14" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAEAAAAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Building.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Manufactory">
+    <Position X="20.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAACgAAIAABAAAAAAAACEAAAIAAAAAAAgAAAAAAAgAA=</HashCode>
+      <FileName>Assets\Scripts\Building.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ClothesManufactory">
+    <Position X="20.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAACgAAIAABAAAAAAAAiEAAAIAAAAAABoAAAAAAAgAA=</HashCode>
+      <FileName>Assets\Scripts\Building.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="LuxiriousManufactory">
+    <Position X="22.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAACgAAIAABAAAAAAAACEAAAIAAAAAAAgAAAAAAAgAA=</HashCode>
+      <FileName>Assets\Scripts\Building.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Builder">
+    <Position X="43.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAwEAASigAAgAAAAAASAQABAAAEAAQAAAAABAQAAE=</HashCode>
+      <FileName>Assets\Scripts\Builder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BuildingSelecter">
+    <Position X="36.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEQABAAAAAAQAAAAABAAAAAAAAAAAAAAAAAAUEAAAAA=</HashCode>
+      <FileName>Assets\Scripts\BuildingSelecter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="City">
+    <Position X="39.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>MCBSAAABAgAAAgAAABIAADQAAABAgAAAAAAABCAQEAA=</HashCode>
+      <FileName>Assets\Scripts\City.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ModelList">
+    <Position X="41.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAACAAAAAAIAAAAAQGAAAAAAAAAQIBBIAggAA=</HashCode>
+      <FileName>Assets\Scripts\ModelList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CameraHelper">
+    <Position X="36.75" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\CameraHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="IProductiveBuilding">
+    <Position X="14.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAACAAAIAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAgAA=</HashCode>
+      <FileName>Assets\Scripts\Building.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ICitizenConsist">
+    <Position X="17.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAABAAAAAAAACAAAAIAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Building.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Upgradable">
+    <Position X="18.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAgAAAAAAAAAAABIAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Building.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
